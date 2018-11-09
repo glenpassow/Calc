@@ -6,7 +6,7 @@ from math import log, log10, sqrt, log2
 #a = input("Start of interval")
 #b = input("End of interval")
 #s = input("step")
-func = input("insert your function with x as variable")
+func = str(input("insert your function with x as variable"))
 
 
 x = 3
@@ -17,6 +17,7 @@ print(val)
 
 #TODO use the eval function for everything
 #watch where it starts with the counting!
+"""
 print(a)
 print(b)
 print(s)
