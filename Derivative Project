@@ -1,8 +1,9 @@
-#Glen Passow
 
 
-a = input("Start of interval")
-b = input("End of interval")
-s = input("step")
-func = str(input("insert your function with x as variable"))
+x
+func = input("funciton")
+y = eval(func)
+
+print(y)
+
 
