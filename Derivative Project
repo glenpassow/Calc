@@ -1,6 +1,17 @@
 
+a = float(input("range start"))
+b = float(input("range end"))
+s = float(input("step"))
 
-x
+x = 2
+
+mat = [['x',a],['y',0],['f1',0],['f2',0]]
+
+#def update():
+#    for col in range (0,4):
+
+print(mat)
+
 func = input("funciton")
 y = eval(func)
 
