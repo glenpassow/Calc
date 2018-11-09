@@ -1,1 +1,7 @@
 #Glen Passow
+
+a = input("Start of interval")
+b = input("End of interval")
+s = input("step")
+
+print(a, b, c)
