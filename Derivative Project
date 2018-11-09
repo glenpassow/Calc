@@ -1,7 +1,7 @@
 #Glen Passow
-from math import sin,cos, tan, acos, asin, atan
-from math import exp, expm1, e, pi
-from math import log, log10, sqrt, log2
+#from math import sin,cos, tan, acos, asin, atan
+#from math import exp, expm1, e, pi
+#from math import log, log10, sqrt, log2
 
 #a = input("Start of interval")
 #b = input("End of interval")
