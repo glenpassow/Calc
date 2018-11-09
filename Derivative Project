@@ -6,16 +6,3 @@ b = input("End of interval")
 s = input("step")
 func = str(input("insert your function with x as variable"))
 
-"""
-x = 3
-val = eval(x**3)
-
-print(val)
-
-
-#TODO use the eval function for everything
-#watch where it starts with the counting!
-
-print(a)
-print(b)
-print(s)
