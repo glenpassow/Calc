@@ -1,9 +1,9 @@
 #Glen Passow
 from math import
 
-a = input("Start of interval")
-b = input("End of interval")
-s = input("step")
+#a = input("Start of interval")
+#b = input("End of interval")
+#s = input("step")
 func = input("insert your function with x as variable")
 
 
