@@ -5,26 +5,30 @@ func = input("function")
 
 dif = 0.00001
 
-#This makes a weird issue as the last value will go beyond the end of the interval
+#This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
 n = int((b-a)//s) + 1
 print(n)
 
-#x = 2
 
+#make x list
 xvals=[]
 
+#fill x list
 for i in range(0,n):
     xvals.append(a + i*s)
 
-
+#make y list
 y=[]
 
+#fill y list
 for i in range(0,n):
     x = a + i*s
     y.append(eval(func))
-    
+ 
+#makes f' lst
 f1 = []
 
+#fill f' list
 for i in range(0,n):
     x = a + i*s + dif
     f1y1 = eval(func)
@@ -33,9 +37,11 @@ for i in range(0,n):
     
     f1Val = (f1y1-f1y2)/(2*dif)
     f1.append(f1Val)
-    
+
+#make f'' list
 f2 = []
 
+#fill f'' list
 for i in range (0,n):
     x = a + i*s + dif
     f2y1 = eval(func)
@@ -46,9 +52,11 @@ for i in range (0,n):
     x = a + i*s
     f2y3 = eval(func)
     
+    #To find this equation simply plug the first derivative back into itself....if that makes sense.
     f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
     f2.append(f2Val)
 
+#SHOULD WE ROUND???
 
 
 
