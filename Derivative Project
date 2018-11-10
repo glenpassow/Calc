@@ -3,7 +3,7 @@ b = float(input("range end"))
 s = float(input("step"))
 func = input("function")
 
-dif = 0.0000000001
+dif = 0.00001
 
 #This makes a weird issue as the last value will go beyond the end of the interval
 n = int((b-a)//s) + 1
