@@ -58,6 +58,18 @@ for i in range (0,n):
 
 #SHOULD WE ROUND???
 
+#find extrema (local and absolute)
+
+#increasing intervals
+
+#decreasing intervals
+
+#points of inflection
+
+#concave up intervals
+
+#convave down intervals
+
 
 print(xvals)
 print(y)
