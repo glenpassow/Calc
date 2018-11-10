@@ -31,8 +31,8 @@ for i in range(0,n):
     x = a + i*s - dif
     f1y2 = eval(func)
     
-    f1 = (f1y1-f1y2)/(2*dif)
-    f1.append(f1)
+    f1Val = (f1y1-f1y2)/(2*dif)
+    f1.append(f1Val)
 
 
 
