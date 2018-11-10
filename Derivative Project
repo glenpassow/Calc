@@ -1,24 +1,52 @@
 a = float(input("range start"))
 b = float(input("range end"))
 s = float(input("step"))
+func = input("function")
 
-n = (a-b)/s
+dif = 0.00001
+
+#This makes a weird issue as the last value will go beyond the end of the interval
+n = int((b-a)//s) + 1
+print(n)
 
 #x = 2
 
-mat = [['x',a],['y',0],['f1',0],['f2',0]]
+xvals=[]
+
+for i in range(0,n):
+    xvals.append(a + i*s)
 
 
-def update():
-    for col in range (0,n):
-        mat[col]=a+(n*s)
+y=[]
 
-print(mat)
-'''
+for i in range(0,n):
+    x = a + i*s
+    y.append(eval(func))
+    
+f1 = []
+
+for i in range(0,n):
+    x = a + i*s + dif
+    f1y1 = eval(func)
+    x = a + i*s - dif
+    f1y2 = eval(func)
+    
+    f1 = (f1y1-f1y2)/(2*dif)
+    f1.append(f1)
+
+
+
+
+#for i in range(0,10):
+#    np.insert(mat, 1, np.array((1, 1)), 0)
+
+print(xvals)
+print(y)
+print(f1)
+
+"""
 func = input("funciton")
 y = eval(func)
 
 print(y)
-
-
-'''
+"""
