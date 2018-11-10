@@ -33,6 +33,22 @@ for i in range(0,n):
     
     f1Val = (f1y1-f1y2)/(2*dif)
     f1.append(f1Val)
+    
+f2 = []
+
+for i in range (0,n):
+    x = a + i*s + dif
+    f2y1 = eval(func)
+    
+    x = a + i*s - dif
+    f2y2 = eval(func)
+    
+    x = a + i*s
+    f2y3 = eval(func)
+    
+    f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
+    f2.append(f2Val)
+
 
 
 
@@ -43,6 +59,7 @@ for i in range(0,n):
 print(xvals)
 print(y)
 print(f1)
+print(f2)
 
 """
 func = input("funciton")
