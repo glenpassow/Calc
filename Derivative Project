@@ -59,19 +59,7 @@ for i in range (0,n):
 #SHOULD WE ROUND???
 
 
-
-
-#for i in range(0,10):
-#    np.insert(mat, 1, np.array((1, 1)), 0)
-
 print(xvals)
 print(y)
 print(f1)
 print(f2)
-
-"""
-func = input("funciton")
-y = eval(func)
-
-print(y)
-"""
