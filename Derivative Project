@@ -1,14 +1,21 @@
-a = float(input("range start"))
-b = float(input("range end"))
-s = float(input("step"))
-func = input("function")
+#Clay Kynor and Glen Passow
+#11.14.18
+#
+
+from math import sin,cos, tan, acos, asin, atan
+from math import exp, expm1, e, pi
+from math import log, log10, sqrt, log2
+from math import ceil, floor
+
+a = float(input("range start "))
+b = float(input("range end "))
+s = float(input("step "))
+func = input("function ")
 
 dif = 0.00001
 
 #This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
 n = int((b-a)//s) + 1
-print(n)
-
 
 #make x list
 xvals=[]
@@ -18,12 +25,12 @@ for i in range(0,n):
     xvals.append(a + i*s)
 
 #make y list
-y=[]
+yvals=[]
 
 #fill y list
 for i in range(0,n):
     x = a + i*s
-    y.append(eval(func))
+    yvals.append(eval(func))
  
 #makes f' lst
 f1 = []
@@ -56,9 +63,41 @@ for i in range (0,n):
     f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
     f2.append(f2Val)
 
-#SHOULD WE ROUND???
+print('X values', xvals)
+print('Y values', yvals)
+print("F' values", f1)
+print("F'' values", f2)
 
 #find extrema (local and absolute)
+#NEED TO REMEMBER THE USER INSERTED INPUT VALUES TO INCLUDE MAX/MINS AT END OF RANGE
+critPoints = []
+
+def float_round(num, places = 0, direction = ceil):
+    return direction(num * (10**places)) / float(10**places)
+
+for i in range(0,n):
+    if float_round(f1[i], 1, round) == 0:
+        critPoints.append(xvals[i])
+        
+#we need to review how to figure out at like x**3 how it isn't a max or min really, DONT KNOW WHY IT ALWAYS SAYS MINIMUMS
+print(n)
+
+eps = 0.001
+for i in range (0,n):
+    if abs(f1[i])<eps:
+        if abs(f2[i]) == f2[i]:
+            print('Local minimum at (', xvals[i], ',', yvals[i], ')')
+        else:
+            print('Local maximum at (', xvals[i], ',', yvals[i], ')')
+
+if abs(f2[0]) == f2[0]:
+    print('Local minimum at the endpoint (', xvals[0], ',', yvals[0], ')')
+else:
+    print('Local maximum at the endpoint (', xvals[0], ',', yvals[0], ')')
+if abs(f2[n-1]) == f2[n-1]:
+    print('Local minimum at the endpoint (', xvals[n-1], ',', yvals[n-1], ')')
+else:
+    print('Local maximum at the endpoint (', xvals[n-1], ',', yvals[n-1], ')')
 
 #increasing intervals
 
@@ -69,9 +108,3 @@ for i in range (0,n):
 #concave up intervals
 
 #convave down intervals
-
-
-print(xvals)
-print(y)
-print(f1)
-print(f2)
