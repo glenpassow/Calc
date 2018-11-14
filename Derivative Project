@@ -171,7 +171,7 @@ if reps != 0:
         state = True
     
 #make all of the inner convavity intervals
-for i in range (0, reps):
+for i in range (0, reps-1):
     if state == True:
         print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
         state = False
