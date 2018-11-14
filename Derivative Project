@@ -18,7 +18,7 @@ print("")
 dif = 0.00001
 
 #makes what "zero" counts as for the program when identifying endpnts etc.
-zero = (s**9)
+zero = (s**20)
 
 critPnts = []
 inflectionPnts = []
