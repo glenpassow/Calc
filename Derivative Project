@@ -1,6 +1,6 @@
 #Clay Kynor and Glen Passow
 #11.14.18
-#
+#Calculus
 
 from math import sin,cos, tan, acos, asin, atan
 from math import exp, expm1, e, pi
@@ -12,7 +12,19 @@ b = float(input("range end "))
 s = float(input("step "))
 func = input("function ")
 
+print("")
+
+#numeric offset for derivative calcs
 dif = 0.00001
+
+#makes what "zero" counts as for the program when identifying endpnts etc.
+zero = (s**7)
+
+critPnts = []
+inflectionPnts = []
+
+#uncertainty
+unc = s/2
 
 #This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
 n = int((b-a)//s) + 1
@@ -22,89 +34,154 @@ xvals=[]
 
 #fill x list
 for i in range(0,n):
-    xvals.append(a + i*s)
+	xvals.append(a + i*s)
 
 #make y list
 yvals=[]
 
 #fill y list
 for i in range(0,n):
-    x = a + i*s
-    yvals.append(eval(func))
+	x = a + i*s
+	yvals.append(eval(func))
  
 #makes f' lst
 f1 = []
 
 #fill f' list
 for i in range(0,n):
-    x = a + i*s + dif
-    f1y1 = eval(func)
-    x = a + i*s - dif
-    f1y2 = eval(func)
+	x = a + i*s + dif
+	f1y1 = eval(func)
+	x = a + i*s - dif
+	f1y2 = eval(func)
     
-    f1Val = (f1y1-f1y2)/(2*dif)
-    f1.append(f1Val)
+	f1Val = (f1y1-f1y2)/(2*dif)
+	f1.append(f1Val)
 
 #make f'' list
 f2 = []
 
 #fill f'' list
 for i in range (0,n):
-    x = a + i*s + dif
-    f2y1 = eval(func)
+	x = a + i*s + dif
+	f2y1 = eval(func)
     
-    x = a + i*s - dif
-    f2y2 = eval(func)
+	x = a + i*s - dif
+	f2y2 = eval(func)
     
-    x = a + i*s
-    f2y3 = eval(func)
+	x = a + i*s
+	f2y3 = eval(func)
     
-    #To find this equation simply plug the first derivative back into itself....if that makes sense.
-    f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
-    f2.append(f2Val)
-
+	#To find this equation simply plug the first derivative back into itself....if that makes sense.
+	f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
+	f2.append(f2Val)
+"""
 print('X values', xvals)
 print('Y values', yvals)
 print("F' values", f1)
 print("F'' values", f2)
-
-#find extrema (local and absolute)
-#NEED TO REMEMBER THE USER INSERTED INPUT VALUES TO INCLUDE MAX/MINS AT END OF RANGE
-critPoints = []
-
+"""
 def float_round(num, places = 0, direction = ceil):
-    return direction(num * (10**places)) / float(10**places)
+	return direction(num * (10**places)) / float(10**places)
+    
 
-for i in range(0,n):
-    if float_round(f1[i], 1, round) == 0:
-        critPoints.append(xvals[i])
-        
-#we need to review how to figure out at like x**3 how it isn't a max or min really, DONT KNOW WHY IT ALWAYS SAYS MINIMUMS
-print(n)
+#add this first x value for listing purposes
+inflectionPnts.append(float_round((xvals[-1])))
 
-eps = 0.001
-for i in range (0,n):
-    if abs(f1[i])<eps:
-        if abs(f2[i]) == f2[i]:
-            print('Local minimum at (', xvals[i], ',', yvals[i], ')')
-        else:
-            print('Local maximum at (', xvals[i], ',', yvals[i], ')')
-
-if abs(f2[0]) == f2[0]:
-    print('Local minimum at the endpoint (', xvals[0], ',', yvals[0], ')')
+if abs(f1[0]) == f1[0]:
+	print('Local minumum at the endpoint (', float_round(xvals[0], 2, round), ',', float_round(yvals[0], 2, round), ')')
+	state = True
 else:
-    print('Local maximum at the endpoint (', xvals[0], ',', yvals[0], ')')
-if abs(f2[n-1]) == f2[n-1]:
-    print('Local minimum at the endpoint (', xvals[n-1], ',', yvals[n-1], ')')
+	print('Local maximum at the endpoint (', float_round(xvals[0], 2, round), ',', float_round(yvals[0], 2, round), ')')
+	state = False
+    
+#add to crit pnt lsit
+critPnts.append(float_round(xvals[0], 2, round))
+
+#Think about it. If your values go +, +, +, -, -, - There are two places that there will be a sign change looking to the sides...We need the x value between the two
+#Find the internal critical points
+for i in range(1,n-2):
+    if abs((f1[i-1]) * (f1[i+1])) > zero:
+        if (f1[i-1]) * (f1[i+1]) < 0:
+            if f1[i]*f1[i+1] < 0:
+            	pnt = float_round(((xvals[i] + xvals[i+1])/2), 2, round)
+            	critPnts.append(pnt)
+            	if abs(f2[i]) == f2[i]:
+                	print('Local minimum at (', pnt, '+/-',unc,')')
+            	else:
+                	print('Local maximum at (', pnt, '+/-',unc,')')
+#not finding the local max for cos
+#revisit how the plus or minus is displayed
+
+    
+if abs(f1[-1]) == f1[-1]:
+	print('Local maximum at the endpoint (', float_round(xvals[-1], 2, round), ',', float_round(yvals[-1], 2, round), ')')
 else:
-    print('Local maximum at the endpoint (', xvals[n-1], ',', yvals[n-1], ')')
+	print('Local minimum at the endpoint (', float_round(xvals[-1], 2, round), ',', float_round(yvals[-1], 2, round), ')')
+#add to crit pnt lsit
+critPnts.append(float_round(xvals[-1], 2, round))
+print("")
+               	 
+#Find the inflection points
+for i in range(1,n-2):
+    if abs((f2[i-1]) * (f2[i+1])) > zero:
+        if (f2[i-1]) * (f2[i+1]) < 0:
+            if f2[i]*f2[i+1] < 0:
+            	pnt = float_round(((xvals[i] + xvals[i+1])/2))
+            	inflectionPnts.append(pnt)
+            	print('Inflection point at (', pnt, '+/-',unc,')')
+print("")
 
-#increasing intervals
+#increasing/decreasing
+reps = len(critPnts) - 1
+for i in range (0, reps):
+    if state == True:
+        print('increasing on interval [',critPnts[i],', ',critPnts[i+1],']')
+    	state = False
+    else:
+        print('decreasing on interval [',critPnts[i],', ',critPnts[i+1],']')
+        state = True
+print("")
 
-#decreasing intervals
+#concave up/concave down
+reps = len(inflectionPnts) - 1
 
-#points of inflection
+#Add the last x value for marking purposes
+inflectionPnts.append(float_round((xvals[-1])))
 
-#concave up intervals
+#THIS SEAMS SKETCH
+if f2[1] > 0:
+	state = True
+else:
+	state = False
 
-#convave down intervals
+#If only one interval for concavity
+if reps == 0:
+    if state == True:
+        print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+    else:
+        print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+
+#make the first concave interval
+if reps != 0:
+    if state == True:
+        print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+        state = False
+    else:
+        print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+        state = True
+    
+#make all of the inner convavity intervals
+for i in range (0, reps):
+    if state == True:
+        print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+        state = False
+    else:
+        print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+        state = True
+   	 
+#make exterior concavity intervals
+if reps != 0:
+    if state == True:
+        print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+    else:
+        print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
