@@ -18,7 +18,7 @@ print("")
 dif = 0.00001
 
 #makes what "zero" counts as for the program when identifying endpnts etc.
-zero = (s**7)
+zero = (s**9)
 
 critPnts = []
 inflectionPnts = []
@@ -74,12 +74,12 @@ for i in range (0,n):
 	#To find this equation simply plug the first derivative back into itself....if that makes sense.
 	f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
 	f2.append(f2Val)
-"""
-print('X values', xvals)
-print('Y values', yvals)
+
+#print('X values', xvals)
+#print('Y values', yvals)
 print("F' values", f1)
-print("F'' values", f2)
-"""
+#print("F'' values", f2)
+
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
     
