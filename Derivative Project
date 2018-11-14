@@ -7,10 +7,10 @@ from math import exp, expm1, e, pi
 from math import log, log10, sqrt, log2
 from math import ceil, floor
 
-a = float(input("range start "))
-b = float(input("range end "))
-s = float(input("step (smaller than 0.1)"))
-func = input("function ")
+a = float(input("Input the left bound of your interval "))
+b = float(input("Input the right bound of your interval "))
+s = float(input("Input the step (smaller than 0.1)"))
+func = input("Input the function in python syntax ")
 
 print("")
 
