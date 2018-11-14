@@ -148,7 +148,7 @@ reps = len(inflectionPnts) - 1
 #Add the last x value for marking purposes
 inflectionPnts.append(float_round((xvals[-1])))
 
-#THIS SEAMS SKETCH
+#THIS SEEMS SKETCH
 if f2[1] > 0:
 	state = True
 else:
