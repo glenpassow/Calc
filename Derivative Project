@@ -185,7 +185,6 @@ line = True
 for i in f2:
     if abs(f2[i]) > zero:
         line = False
-print(line)
     
 #if there is concavity define each interval between the end points and inflection points.
 #If only one interval for concavity. This is important to get the brackets correct
