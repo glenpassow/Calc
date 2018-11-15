@@ -167,7 +167,7 @@ reps = len(inflectionPnts) - 1
 #Add the last x value for marking purposes
 inflectionPnts.append(float_round((xvals[-1])))
 
-#THIS SEEMS SKETCH
+#Determine if the first interval will be concave up or down
 if f2[1] > 0:
 	state = True
 	concavity = True
@@ -177,6 +177,7 @@ if f2[1] < 0:
 else:
 	concavity = False
 
+#if there is concavity define each interval between the end points and inflection points.
 if concavity != False:
     #If only one interval for concavity
     if reps == 0:
