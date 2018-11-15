@@ -79,8 +79,8 @@ for i in range (0,n):
 
 #print('X values', xvals)
 #print('Y values', yvals)
-print("F' values", f1)
-print("F'' values", f2)
+#print("F' values", f1)
+#print("F'' values", f2)
 
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
