@@ -226,9 +226,9 @@ for i in range(0,reps):
 maxy = max(critExtremes)
 miny = min(critExtremes)
 for i in range(0,reps):
-    if critExtremes[i] = maxy:
+    if critExtremes[i] == maxy:
         print('Global maximum at',critPnts[i])
-    if critExtremes[i] = miny:
+    if critExtremes[i] == miny:
         print('Global minimum at',critPnts[i])
         
         
