@@ -217,9 +217,13 @@ if concavity == False:
 #list for y values of crit points
 critExtremes = []
 
-for i in critPnts:
+reps = len(critPnts)-1
+for i in range(0,reps):
+    print(i)
     x = critPnts[i]
-    y = eval(x)
+    print(x)
+    y = eval(func)
+    print(y)
     critExtremes.append(y)
     
 print(critExtremes)
