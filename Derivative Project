@@ -261,5 +261,6 @@ for i in range(0,reps):
         
 #a little joke
 if line == True:
+    print('')
     print('You really thought you could fool this program with a line?')
     
