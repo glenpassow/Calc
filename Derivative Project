@@ -2,7 +2,6 @@
 #11.14.18
 #Calculus
 
-#Should we add a scanner that tells the user that their input has a divide by zero issue etc...WE should find limitations and then stop the user from hitting them
 
 from math import sin,cos, tan, acos, asin, atan
 from math import exp, expm1, e, pi
@@ -12,7 +11,7 @@ from math import ceil, floor
 a = float(input("Input the left bound of your interval "))
 b = float(input("Input the right bound of your interval "))
 s = float(input("Input the step (smaller than 0.1)"))
-func = input("Input the function in python syntax ")
+func = input("Input a function which is continuous and differentialble on the given interval ")
 
 print("")
 
@@ -193,4 +192,4 @@ if concavity != False:
         else:
             print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
 if concavity == False:
-    print("Ther is no concavity on the given interval")
+    print("There is no concavity on the given interval")
