@@ -215,14 +215,19 @@ print("")
 #list for y values of crit points
 critExtremes = []
 
+#fill a list with the y values corresponding to the critical points and end points
 reps = len(critPnts)
 for i in range(0,reps):
     x = critPnts[i]
+    #The rounding is important to make sure that all of the maximums for sin or cos are all counted
     y = float_round((eval(func)), 2, round)
     critExtremes.append(y)
-    
+
+#find the max and min values of the y values for critical points and end points
 maxy = max(critExtremes)
 miny = min(critExtremes)
+
+#Go through the list of the y values and see if they mmatch the max or min values. If they do then print the corresponding x value.
 for i in range(0,reps):
     if critExtremes[i] == maxy:
         print('Global maximum at (',critPnts[i],',',critExtremes[i],')')
