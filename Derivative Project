@@ -26,7 +26,7 @@ zero = (s**20)
 critPnts = []
 inflectionPnts = []
 
-#Defines what the uncertainty is for the x values that are produced in this program
+#Defines what the uncertainty is for the x values that are produced in
 unc = s/2
 
 #This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
