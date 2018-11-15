@@ -258,4 +258,8 @@ for i in range(0,reps):
         print('Global maximum at (',critPnts[i],',',critExtremes[i],')')
     if critExtremes[i] == miny:
         print('Global minimum at (',critPnts[i],',',critExtremes[i],')')
+        
+#a little joke
+if line = True:
+    print('You really thought you could fool this program with a line?')
     
