@@ -18,7 +18,7 @@ for i in range(0,40):
 
 print('Range is [',a,',',b,']')
 print('Step is ',s)
-print('Function is 'func)
+print('Function is ',func)
 
 #this value is the offset used in the numerical derivative calculation.
 dif = 0.00001
