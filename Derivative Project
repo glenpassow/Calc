@@ -72,16 +72,21 @@ f2 = []
 
 #fill f'' list
 for i in range (0,n):
+    #x value shifted a tiny bit to the right
 	x = a + i*s + dif
+	#corresponding value
 	f2y1 = eval(func)
     
+    #x value shifted a tiny bit to the left
 	x = a + i*s - dif
+	#corresponding y value
 	f2y2 = eval(func)
     
+    #define x as "itself" again
 	x = a + i*s
 	f2y3 = eval(func)
     
-	#To find this equation simply plug the first derivative back into itself....if that makes sense.
+	#The equation to get the secnd derivative is then shown below. This can be found by putting the derivative equation into itself and simplifying. There are then effectively three points that are being used to find this value
 	f2Val = (f2y1 - 2*f2y3 +f2y2)/(dif**2)
 	f2.append(f2Val)
 
