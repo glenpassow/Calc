@@ -79,8 +79,8 @@ for i in range (0,n):
 
 #print('X values', xvals)
 #print('Y values', yvals)
-#print("F' values", f1)
-#print("F'' values", f2)
+print("F' values", f1)
+print("F'' values", f2)
 
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
@@ -153,8 +153,10 @@ inflectionPnts.append(float_round((xvals[-1])))
 #THIS SEEMS SKETCH
 if f2[1] > 0:
 	state = True
+	concavity = True
 if f2[1] < 0:
     state = False
+    concavity = True
 else:
 	concavity = False
 
