@@ -213,6 +213,8 @@ if concavity != False:
 if concavity == False:
     print("There is no concavity on the given interval")
     
+print("")
+    
 #Find global max and min
 #list for y values of crit points
 critExtremes = []
@@ -227,9 +229,9 @@ maxy = max(critExtremes)
 miny = min(critExtremes)
 for i in range(0,reps):
     if critExtremes[i] == maxy:
-        print('Global maximum at',critPnts[i])
+        print('Global maximum at (',critPnts[i],',',critExtremes[i],')')
     if critExtremes[i] == miny:
-        print('Global minimum at',critPnts[i])
+        print('Global minimum at(',critPnts[i],',',critExtremes[i],')')
         
         
 print(critExtremes)
