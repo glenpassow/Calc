@@ -190,3 +190,5 @@ if concavity != False:
             print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
         else:
             print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+if concavity = False:
+    print("Ther is no concavity on the given interval")
