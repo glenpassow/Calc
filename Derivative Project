@@ -203,13 +203,13 @@ print(inflectionPnts)
 #If only one interval for concavity. This is important to get the brackets correct
 if line == False:
     if reps == 0:
-        if state == True:
+        if state == True and inflection == False:
             print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
         else:
             print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
         
     #make the first concave interval. The difference with this one is that the first bracket is closed "["
-    if reps != 0:
+    if reps != 0 and inflection == True:
         if state == True:
             print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
             state = False
