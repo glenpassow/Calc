@@ -104,9 +104,6 @@ for i in range (0,n):
 #rounding function
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
-    
-#add this first x value for listing purposes
-inflectionPnts.append(float_round((xvals[-1])))
 
 #identify if the left endpoint is a maximum or minimum
 if abs(f1[0]) == f1[0]:
@@ -162,7 +159,11 @@ for i in range(1,n-2):
             	inflection = True
 if inflection == False:
     print("There are no inflection points on the interval")
+    inflectionPnts.append(float_round((xvals[0])))
 print("")
+
+#add this first x value for listing purposes
+inflectionPnts.append(float_round((xvals[-1])))
 
 #increasing/decreasing
 #The state variable is defined above to determine if the first interval is increasing or decreasing. The intervals then go between increasing and decreasing.
@@ -195,6 +196,8 @@ line = True
 for i in f2:
     if abs(f2[i]) > zero:
         line = False
+        
+print(inflectionPnts)
     
 #if there is concavity define each interval between the end points and inflection points.
 #If only one interval for concavity. This is important to get the brackets correct
