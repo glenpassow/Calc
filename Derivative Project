@@ -2,7 +2,6 @@
 #11.14.18
 #Calculus
 
-
 from math import sin,cos, tan, acos, asin, atan
 from math import exp, expm1, e, pi
 from math import log, log10, sqrt, log2
@@ -100,7 +99,6 @@ for i in range (0,n):
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
     
-
 #add this first x value for listing purposes
 inflectionPnts.append(float_round((xvals[-1])))
 
@@ -172,8 +170,6 @@ if f2[1] > 0:
 	state = True
 else:
     state = False
-
-
 
 #if there is concavity define each interval between the end points and inflection points.
     #If only one interval for concavity
