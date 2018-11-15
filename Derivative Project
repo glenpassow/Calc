@@ -13,7 +13,7 @@ b = float(input("Input the right bound of your interval "))
 s = float(input("Input the step (smaller than 0.1) at which values will be calculated "))
 func = input("Input a function which is continuous and differentialble on the given interval (see the users manual) ")
 
-for i in range(0,40):
+for i in range(0,20):
     print("")
 
 print('Range is [',a,',',b,']')
