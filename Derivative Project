@@ -118,10 +118,15 @@ critPnts.append(float_round(xvals[0], 2, round))
 #Think about it. If your values go +, +, +, -, -, - There are two places that there will be a sign change looking to the sides...We need the x value between the two
 #Find the internal critical points
 #A lot of the the logical arguments are to deal with the fact that no number is actually zero.
+#by setting the range like this the end points are not included.
 for i in range(1,n-2):
+    #If the value "ahead" and "behind" are not zero and at the change.
     if abs((f1[i-1]) * (f1[i+1])) > zero:
+        #The value ahead and behind must have a product less than zero.
         if (f1[i-1]) * (f1[i+1]) < 0:
+            #This states that the sign change must happen between the current value and the next one.This stops "double counting"
             if f1[i]*f1[i+1] < 0:
+                #label the point
             	pnt = float_round(((xvals[i] + xvals[i+1])/2), 2, round)
             	critPnts.append(pnt)
             	if abs(f2[i]) == f2[i]:
@@ -139,6 +144,7 @@ critPnts.append(float_round(xvals[-1], 2, round))
 print("")
                	 
 #Find the inflection points
+#for an explanation of the logic see the comments from line 118 to 135. This is the same, but with the second derivative.
 for i in range(1,n-2):
     if abs((f2[i-1]) * (f2[i+1])) > zero:
         if (f2[i-1]) * (f2[i+1]) < 0:
@@ -149,6 +155,8 @@ for i in range(1,n-2):
 print("")
 
 #increasing/decreasing
+#The state variable is defined above to determine if the first interval is increasing or decreasing. The intervals then go between increasing and decreasing.
+#count the critical points and subtract one to get the number of intervals of increasing and decreasing
 reps = len(critPnts) - 1
 for i in range (0, reps):
     if state == True:
@@ -160,26 +168,27 @@ for i in range (0, reps):
 print("")
 
 #concave up/concave down
+#count the inflection points (and the end points) then subtract one. This yields the number of concavity intervals that will exist
 reps = len(inflectionPnts) - 1
 
 #Add the last x value for marking purposes
 inflectionPnts.append(float_round((xvals[-1])))
 
-#Determine if the first interval will be concave up or down
+#Determine if the first interval will be concave up or down by looking at the second point. This is probably the weakedst point in the code as it relies on there not being a point of inflection on the second point.
 if f2[1] > 0:
 	state = True
 else:
     state = False
 
 #if there is concavity define each interval between the end points and inflection points.
-    #If only one interval for concavity
+#If only one interval for concavity. This is important to get the brackets correct
 if reps == 0:
     if state == True:
         print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
     else:
         print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
     
-#make the first concave interval
+#make the first concave interval. The difference with this one is that the first bracket is closed "["
 if reps != 0:
     if state == True:
         print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
@@ -188,7 +197,7 @@ if reps != 0:
         print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
         state = True
         
-#make all of the inner convavity intervals
+#make all of the inner convavity intervals. All brackets are open
 for i in range (0, reps-1):
     if state == True:
         print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
@@ -197,14 +206,13 @@ for i in range (0, reps-1):
         print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
         state = True
        	 
-#make exterior concavity intervals
+#make exterior concavity at the end of the interval. Ends with closed bracket.
 if reps != 0:
     if state == True:
         print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
     else:
         print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
 
-    
 print("")
     
 #Find global max and min
@@ -214,9 +222,12 @@ critExtremes = []
 #fill a list with the y values corresponding to the critical points and end points
 reps = len(critPnts)
 for i in range(0,reps):
+    #get the x value for a critical point
     x = critPnts[i]
     #The rounding is important to make sure that all of the maximums for sin or cos are all counted
+    #plug this x value back into the orginal function to get the y value
     y = float_round((eval(func)), 2, round)
+    #add the y value to the extrema list of y values.
     critExtremes.append(y)
 
 #find the max and min values of the y values for critical points and end points
@@ -229,7 +240,4 @@ for i in range(0,reps):
         print('Global maximum at (',critPnts[i],',',critExtremes[i],')')
     if critExtremes[i] == miny:
         print('Global minimum at (',critPnts[i],',',critExtremes[i],')')
-        
-    
-    
     
