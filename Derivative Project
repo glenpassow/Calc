@@ -219,13 +219,19 @@ critExtremes = []
 
 reps = len(critPnts)
 for i in range(0,reps):
-    print(i)
     x = critPnts[i]
-    print(x)
-    y = eval(func)
-    print(y)
+    y = float_round((eval(func)), 2, round)
     critExtremes.append(y)
     
+maxy = max(critExtremes)
+miny = min(critExtremes)
+for i in range(0,reps):
+    if critExtremes[i] = maxy:
+        print('Global maximum at',critPnts[i])
+    if critExtremes[i] = miny:
+        print('Global minimum at',critPnts[i])
+        
+        
 print(critExtremes)
     
     
