@@ -212,3 +212,17 @@ if concavity != False:
             print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
 if concavity == False:
     print("There is no concavity on the given interval")
+    
+#Find global max and min
+#list for y values of crit points
+critExtremes = []
+
+for i in critPnts:
+    x = critPnts[i]
+    y = eval(x)
+    critExtremes.append(y)
+    
+print(critExtremes)
+    
+    
+    
