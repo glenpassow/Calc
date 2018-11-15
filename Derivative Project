@@ -8,23 +8,25 @@ from math import exp, expm1, e, pi
 from math import log, log10, sqrt, log2
 from math import ceil, floor
 
+#Get the required values and function from the user
 a = float(input("Input the left bound of your interval "))
 b = float(input("Input the right bound of your interval "))
 s = float(input("Input the step (smaller than 0.1)"))
-func = input("Input a function which is continuous and differentialble on the given interval ")
+func = input("Input a function which is continuous and differentialble on the given interval (see the users manual) ")
 
 print("")
 
-#numeric offset for derivative calcs
+#this value is the offset used in the numerical derivative calculation.
 dif = 0.00001
 
-#makes what "zero" counts as for the program when identifying endpnts etc.
+#defines what "zero" counts as for the program when identifying endpnts etc.
 zero = (s**20)
 
+#defines lists for the critical points and inflection points that will be used for identifying increasing/decreasing and concavity intervals
 critPnts = []
 inflectionPnts = []
 
-#uncertainty
+#Defines what the uncertainty is for the x values that are produced in this program
 unc = s/2
 
 #This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
