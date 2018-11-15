@@ -19,7 +19,7 @@ for i in range(0,3):
 print('Range is [',a,',',b,']')
 print('Step is ',s)
 print('Function is ',func)
-print("")
+print('')
 
 #this value is the offset used in the numerical derivative calculation.
 dif = 0.00001
@@ -104,6 +104,9 @@ for i in range (0,n):
 #rounding function
 def float_round(num, places = 0, direction = ceil):
 	return direction(num * (10**places)) / float(10**places)
+    
+#add this first x value for listing purposes
+inflectionPnts.append(float_round((xvals[-1])))
 
 #identify if the left endpoint is a maximum or minimum
 if abs(f1[0]) == f1[0]:
@@ -159,11 +162,7 @@ for i in range(1,n-2):
             	inflection = True
 if inflection == False:
     print("There are no inflection points on the interval")
-    inflectionPnts.append(float_round((xvals[0])))
 print("")
-
-#add this first x value for listing purposes
-inflectionPnts.append(float_round((xvals[-1])))
 
 #increasing/decreasing
 #The state variable is defined above to determine if the first interval is increasing or decreasing. The intervals then go between increasing and decreasing.
@@ -196,20 +195,18 @@ line = True
 for i in f2:
     if abs(f2[i]) > zero:
         line = False
-        
-print(inflectionPnts)
     
 #if there is concavity define each interval between the end points and inflection points.
 #If only one interval for concavity. This is important to get the brackets correct
 if line == False:
     if reps == 0:
-        if state == True and inflection == False:
-            print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+        if state == True:
+            print('concave up on interval [',a,', ',b,']')
         else:
-            print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+            print('concave down on interval [',a,', ',b,']')
         
     #make the first concave interval. The difference with this one is that the first bracket is closed "["
-    if reps != 0 and inflection == True:
+    if reps != 0:
         if state == True:
             print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
             state = False
