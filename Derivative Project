@@ -153,37 +153,40 @@ inflectionPnts.append(float_round((xvals[-1])))
 #THIS SEEMS SKETCH
 if f2[1] > 0:
 	state = True
+if f2[1] < 0:
+    state = False
 else:
-	state = False
+	concavity = False
 
-#If only one interval for concavity
-if reps == 0:
-    if state == True:
-        print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-    else:
-        print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-
-#make the first concave interval
-if reps != 0:
-    if state == True:
-        print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
-        state = False
-    else:
-        print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
-        state = True
+if concavity != False:
+    #If only one interval for concavity
+    if reps == 0:
+        if state == True:
+            print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+        else:
+            print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
     
-#make all of the inner convavity intervals
-for i in range (0, reps-1):
-    if state == True:
-        print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
-        state = False
-    else:
-        print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
-        state = True
-   	 
-#make exterior concavity intervals
-if reps != 0:
-    if state == True:
-        print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-    else:
-        print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+    #make the first concave interval
+    if reps != 0:
+        if state == True:
+            print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+            state = False
+        else:
+            print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+            state = True
+        
+    #make all of the inner convavity intervals
+    for i in range (0, reps-1):
+        if state == True:
+            print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+            state = False
+        else:
+            print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+            state = True
+       	 
+    #make exterior concavity intervals
+    if reps != 0:
+        if state == True:
+            print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+        else:
+            print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
