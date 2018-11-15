@@ -13,7 +13,12 @@ b = float(input("Input the right bound of your interval "))
 s = float(input("Input the step (smaller than 0.1) at which values will be calculated "))
 func = input("Input a function which is continuous and differentialble on the given interval (see the users manual) ")
 
-print("")
+for i in range(0,40):
+    print("")
+
+print('Range is [',a,',',b,']')
+print('Step is ',s)
+print('Function is 'func)
 
 #this value is the offset used in the numerical derivative calculation.
 dif = 0.00001
