@@ -231,10 +231,8 @@ for i in range(0,reps):
     if critExtremes[i] == maxy:
         print('Global maximum at (',critPnts[i],',',critExtremes[i],')')
     if critExtremes[i] == miny:
-        print('Global minimum at(',critPnts[i],',',critExtremes[i],')')
+        print('Global minimum at (',critPnts[i],',',critExtremes[i],')')
         
-        
-print(critExtremes)
     
     
     
