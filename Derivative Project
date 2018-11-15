@@ -180,39 +180,48 @@ if f2[1] > 0:
 else:
     state = False
 
+#Determine if the given function is a line with no concavity
+line = True
+for i in f2:
+    if abs(f2[i]) > zero:
+        line = False
+print(line)
+    
 #if there is concavity define each interval between the end points and inflection points.
 #If only one interval for concavity. This is important to get the brackets correct
-if reps == 0:
-    if state == True:
-        print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-    else:
-        print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-    
-#make the first concave interval. The difference with this one is that the first bracket is closed "["
-if reps != 0:
-    if state == True:
-        print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
-        state = False
-    else:
-        print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
-        state = True
+if line == False:
+    if reps == 0:
+        if state == True:
+            print('concave up on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+        else:
+            print('concave down on interval [',inflectionPnts[-2],', ',inflectionPnts[-1],']')
         
-#make all of the inner convavity intervals. All brackets are open
-for i in range (0, reps-1):
-    if state == True:
-        print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
-        state = False
-    else:
-        print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
-        state = True
-       	 
-#make exterior concavity at the end of the interval. Ends with closed bracket.
-if reps != 0:
-    if state == True:
-        print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-    else:
-        print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
-
+    #make the first concave interval. The difference with this one is that the first bracket is closed "["
+    if reps != 0:
+        if state == True:
+            print('concave up on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+            state = False
+        else:
+            print('concave down on interval [',inflectionPnts[0],', ',inflectionPnts[1],')')
+            state = True
+            
+    #make all of the inner convavity intervals. All brackets are open
+    for i in range (0, reps-1):
+        if state == True:
+            print('concave up on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+            state = False
+        else:
+            print('concave down on interval (',inflectionPnts[i+1],', ',inflectionPnts[i+2],')')
+            state = True
+           	 
+    #make exterior concavity at the end of the interval. Ends with closed bracket.
+    if reps != 0:
+        if state == True:
+            print('concave up on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+        else:
+            print('concave down on interval (',inflectionPnts[-2],', ',inflectionPnts[-1],']')
+else:
+    print("There is no concavity on the interval")
 print("")
     
 #Find global max and min
