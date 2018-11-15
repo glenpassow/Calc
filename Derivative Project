@@ -32,35 +32,42 @@ unc = s/2
 #This makes a weird issue as the last value will go beyond the end of the interval if the values do not come out right on
 n = int((b-a)//s) + 1
 
-#make x list
+#make list of the x vlaues within the range on the given step
 xvals=[]
 
 #fill x list
 for i in range(0,n):
+    #simply step along the range and add values to the list
 	xvals.append(a + i*s)
 
-#make y list
+#make list of the y vlaues within the range on the given step
 yvals=[]
 
 #fill y list
 for i in range(0,n):
 	x = a + i*s
+	#put every x value into the function to get the y values and add them
 	yvals.append(eval(func))
  
-#makes f' lst
+#make list of the f' vlaues within the range on the given step
 f1 = []
 
 #fill f' list
 for i in range(0,n):
+    #define x as a value a little to the right of x
 	x = a + i*s + dif
+	#find the corresponding y value to the shifted x value
 	f1y1 = eval(func)
+	#define x again, but this time a little to the left of x
 	x = a + i*s - dif
+	#find the y value corresponding to the left shifted x value
 	f1y2 = eval(func)
     
+    #calculate the derivative at x (this is the point right between the two shifted values)
 	f1Val = (f1y1-f1y2)/(2*dif)
 	f1.append(f1Val)
 
-#make f'' list
+#make list of the f'' vlaues within the range on the given step
 f2 = []
 
 #fill f'' list
