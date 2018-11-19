@@ -1,13 +1,13 @@
-a = input("Start of range")
-b = input("End of range")
-n = input("Number of rectangles")
+a = float(input("Start of range"))
+b = float(input("End of range"))
+n = int(input("Number of rectangles"))
 func = input("input the desired function in python syntax")
 
 xVals = []
 
-w = (b-a)/n
+#w = (b-a)/n
 
 
 
-for i in range (0, n-1):
+for i in range(0, n-1):
     print("yay")
