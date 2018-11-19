@@ -5,9 +5,10 @@ func = input("input the desired function in python syntax")
 
 xVals = []
 
-#w = (b-a)/n
+w = (b-a)/n
 
 
 
-for i in range(0, n-1):
+for i in range(0, n):
+    xVals.append(a + i*w)
     print("yay")
