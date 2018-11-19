@@ -10,4 +10,4 @@ w = (b-a)/n
 
 
 for i in range (0, n-1):
-    print("yay"
+    print("yay")
