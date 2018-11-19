@@ -1,1 +1,8 @@
+a = input("Start of range")
+b = input("End of range")
+n = input("Number of rectangles")
+func = input("input the desired function in python syntax")
 
+xVals = []
+
+w = (b-a)/n
