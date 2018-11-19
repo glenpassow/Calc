@@ -6,3 +6,8 @@ func = input("input the desired function in python syntax")
 xVals = []
 
 w = (b-a)/n
+
+
+
+for i in range (0, n-1):
+    print("yay"
