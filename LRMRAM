@@ -4,9 +4,14 @@ n = int(input("Number of rectangles"))
 func = input("input the desired function in python syntax")
 
 xVals = []
+yVals = []
 
 w = (b-a)/n
 
 for i in range(0, n):
     xVals.append(a + i*w)
-    print("yay")
+    x = xVals[i]
+    yVals.append(eval(xVals[i]))
+    
+print(xVals)
+print(yVals)
