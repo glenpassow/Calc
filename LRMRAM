@@ -29,6 +29,7 @@ MRAM = sum(mY)*w
 print('LRAM',LRAM)
 print('RRAM',RRAM)
 print('MRAM',MRAM)
-    
+ 
+print(MY)  
 print(xVals)
 print(yVals)
