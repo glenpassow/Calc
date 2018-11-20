@@ -1,3 +1,7 @@
+from math import sin, cos, tan, acos, asin, atan
+from math import exp, e, pi
+from math import log, log10, sqrt, log2
+
 a = float(input("Start of range"))
 b = float(input("End of range"))
 n = int(input("Number of rectangles"))
@@ -26,9 +30,9 @@ LRAM = (sum(yVals)-yVals[-1])*w
 RRAM = (sum(yVals)-yVals[0])*w
 MRAM = sum(mY)*w
 
-print('LRAM',LRAM)
-print('RRAM',RRAM)
-print('MRAM',MRAM)
+print('LRAM approximation:',LRAM)
+print('RRAM approximation:',RRAM)
+print('MRAM approximation:',MRAM)
 
 '''
 print(mX)
