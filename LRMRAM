@@ -6,6 +6,9 @@ func = input("input the desired function in python syntax")
 xVals = []
 yVals = []
 
+mX = []
+mY = []
+
 w = (b-a)/n
 
 for i in range(0, n+1):
@@ -14,6 +17,9 @@ for i in range(0, n+1):
     yVals.append(eval(func))
     
 for i in range(0, n):
+    mX.append(a + i*w + w/2)
+    x = mX[i]
+    mY.append(eval(func))
     
     
 LRAM = (sum(xVals)-xVals[-1])*w
