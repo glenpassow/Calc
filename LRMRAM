@@ -22,8 +22,8 @@ for i in range(0, n):
     mY.append(eval(func))
     
     
-LRAM = (sum(xVals)-xVals[-1])*w
-RRAM = (sum(xVals)-xVals[0])*w
+LRAM = (sum(yVals)-yVals[-1])*w
+RRAM = (sum(yVals)-yVals[0])*w
 MRAM = sum(mY)*w
 
 print('LRAM',LRAM)
