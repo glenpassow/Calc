@@ -30,7 +30,8 @@ print('LRAM',LRAM)
 print('RRAM',RRAM)
 print('MRAM',MRAM)
  
-
-print(mY)  
+print(mX)
+print(mY) 
+print("")
 print(xVals)
 print(yVals)
