@@ -7,8 +7,6 @@ xVals = []
 
 w = (b-a)/n
 
-
-
 for i in range(0, n):
     xVals.append(a + i*w)
     print("yay")
