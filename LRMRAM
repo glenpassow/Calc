@@ -24,9 +24,11 @@ for i in range(0, n):
     
 LRAM = (sum(xVals)-xVals[-1])*w
 RRAM = (sum(xVals)-xVals[0])*w
+MRRAM = sum(mY)*w
 
-print(LRAM)
-print(RRAM)
+print('LRAM',LRAM)
+print('RRAM',RRAM)
+print('MRAM',MRAM)
     
 print(xVals)
 print(yVals)
