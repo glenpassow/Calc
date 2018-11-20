@@ -13,6 +13,9 @@ for i in range(0, n+1):
     x = xVals[i]
     yVals.append(eval(func))
     
+for i in range(0, n):
+    
+    
 LRAM = (sum(xVals)-xVals[-1])*w
 RRAM = (sum(xVals)-xVals[0])*w
 
