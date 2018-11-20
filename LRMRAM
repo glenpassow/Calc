@@ -17,7 +17,7 @@ LRAM = (sum(xVals)-xVals[-1])*w
 RRAM = (sum(xVals)-xVals[0])*w
 
 print(LRAM)
-print(RRMA)
+print(RRAM)
     
 print(xVals)
 print(yVals)
