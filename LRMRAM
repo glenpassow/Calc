@@ -30,9 +30,12 @@ LRAM = (sum(yVals)-yVals[-1])*w
 RRAM = (sum(yVals)-yVals[0])*w
 MRAM = sum(mY)*w
 
+TrapA = (LRAM + RRMA)/2
+
 print('LRAM approximation:',LRAM)
 print('RRAM approximation:',RRAM)
 print('MRAM approximation:',MRAM)
+print('TrapA approzimation:',TrapA)
 
 '''
 print(mX)
