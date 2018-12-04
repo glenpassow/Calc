@@ -14,6 +14,7 @@ mX = []
 mY = []
 
 w = (b-a)/n
+AS = 0
 
 for i in range(0, n+1):
     xVals.append(a + i*w)
@@ -24,6 +25,9 @@ for i in range(0, n):
     mX.append(a + i*w + w/2)
     x = mX[i]
     mY.append(eval(func))
+    
+for i in range(0,n-1):
+    AS = AS +(yVals[i]+4*mY[i]+yVals[i+1])*(w/6)
     
     
 LRAM = (sum(yVals)-yVals[-1])*w
@@ -36,6 +40,7 @@ print('LRAM approximation:',LRAM)
 print('RRAM approximation:',RRAM)
 print('MRAM approximation:',MRAM)
 print('TrapA approzimation:',TrapA)
+print('Area Simpson: ',AS)
 
 '''
 print(mX)
